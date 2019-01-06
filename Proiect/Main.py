@@ -12,6 +12,7 @@ channel = 22
 data = []
 j = 0
 
+#pins used in program are their physical numbering not their GPIO BCM name
 GPIO.setmode(GPIO.BOARD)
 
 time.sleep(1)
@@ -92,8 +93,7 @@ def loop():
         lcd.clear()
         lcd.message("humidity " + str(humidity))
         sleep(2)	
-        #tweeter.send_tweet("temperature  "+ str(temperature) +  " humidity " + str(humidity) + " check " + str(check) + " timestamp: " + str(datetime.datetime.now()))
-        
+        tweeter.send_tweet("temperature  "+ str(temperature) +  " humidity " + str(humidity) + " check " + str(check) + " timestamp: " + str(datetime.datetime.now()))      
 		
 if __name__ == '__main__':
 	loop()		

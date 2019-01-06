@@ -10,17 +10,23 @@ accessToken = '2362223719-ITzqIFZCbGtuDzw9bcixmwzgDQncksAq5tO35re'
 accessTokenSecret = '2djdlnA7fxEE1nIjkpcUorQotXxoCRnpZ3t2eSIMMNTty'
 
 class TweeterBot:
-    def __init__(self):
-        #initialize api to send tweets on instance construction    
+    
+    #initialize api to send tweets on instance construction
+    def __init__(self):    
         self.api = Twython(apiKey, apiSecret, accessToken, accessTokenSecret)
 
+    #given message from sensors in main.py , it will post a tweet @sabinpruna
     def send_tweet(self, data):
         try:
             tweet = data
             self.api.update_status(status = tweet)
             print("Tweeted:" + tweet)
         except TwythonError as error:
+            #happens if current tweet is identical to last posted tweet
+            #or too many requests to update were sent from same ip.
             print("Error:" + str(error))
+       
+
        
         # start_time=time.time()
         # try:

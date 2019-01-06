@@ -25,6 +25,9 @@ def loop():
 def destroy():
         GPIO.output(BEEP_PIN, GPIO.HIGH)    # beep off
         GPIO.cleanup()                      # Release resource
+
+
+
 if __name__ == '__main__':     # Program start from here
 	print 'Press Ctrl+C to end the program...'
 	setup()

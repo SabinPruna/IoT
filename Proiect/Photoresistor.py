@@ -4,8 +4,6 @@ from Adafruit_CharLCD import Adafruit_CharLCD
 import ADC0832
 import time
 
-
-
 def init():
 	ADC0832.setup()
 
